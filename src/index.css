@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 
-.switch input:checked ~ .txt::before {background: #094fdb;}
-.switch input:checked ~ .txt::after {background: #fff;left:23px;}
+body{@apply bg-[#EAEBEB] dark:text-white dark:bg-dark}
+h1, h2, h3, h4{@apply text-primary}
+input, textarea{@apply dark:bg-[#292A33]}
+.dark .toggle-inner {@apply ml-[20px]}
