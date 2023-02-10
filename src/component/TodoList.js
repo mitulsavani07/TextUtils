@@ -43,16 +43,16 @@ const TodoList = () => {
 
   return (
     <>
-      <div className='container mx-auto px-4'>
-        <form onSubmit={handleSubmit} className="mb-5">
+      <div className='max-w-3xl w-full mx-auto px-4'>
+        <form onSubmit={handleSubmit} className="mb-5 flex">
           <input
-            className="border border-gray-400 p-2 w-full"
+            className="border-gray-400 px-4 py-2 w-full rounded-lg mr-4 drop-shadow-primary dark:drop-shadow-none"
             type="text"
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
           />
           <button
-            className="bg-blue-500 text-white p-2 rounded mt-2"
+            className="btn whitespace-nowrap m-[0!important]"
             type="submit"
           >
             {selectedIndex === null ? "Add Todo" : "Update Todo"}
@@ -62,18 +62,18 @@ const TodoList = () => {
           {todos.map((todo, index) => (
             <li
               key={index}
-              className="border border-gray-400 p-2 my-2 flex justify-between"
+              className="rounded-lg py-2 px-4 my-2 flex items-center text-base drop-shadow-primary bg-white justify-between"
             >
               <span>{todo}</span>
               <div>
                 <button
-                  className="bg-yellow-500 text-white p-2 rounded mr-2"
+                  className="bg-[#FFBD3E] text-white px-4 py-2 rounded mr-2 text-sm"
                   onClick={() => handleEdit(index)}
                 >
                   Edit
                 </button>
                 <button
-                  className="bg-red-500 text-white p-2 rounded"
+                  className="bg-red-600 text-white px-4 py-2 rounded text-sm"
                   onClick={() => handleDelete(index)}
                 >
                   Delete

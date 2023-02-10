@@ -52,7 +52,7 @@ const TextUtils = (props) => {
     <>
       <div className='container mx-auto px-4'>
         <h1 className='text-center text-5xl font-bold my-5'>{props.heading}</h1>
-        <textarea className='w-full border-2 p-5 rounded-lg dark:text-white dark:drop-shadow-none dark:border-none drop-shadow-[-3px_26px_49px_#b6bacb59]' value={text} name="" id="myBox" cols="30" rows="10" onChange={textChange} placeholder='Enter Yout Utils text'></textarea>
+        <textarea className='w-full border-2 p-5 rounded-lg dark:text-white dark:drop-shadow-none dark:border-none drop-shadow-primary' value={text} name="" id="myBox" cols="30" rows="10" onChange={textChange} placeholder='Enter Yout Utils text'></textarea>
         <div className='flex flex-wrap mt-5 -mx-2'>
           <button onClick={clickUppercase} className='btn'>uppercase</button>
           <button onClick={clickLowercase} className='btn'>lowercase</button>
