@@ -7,3 +7,4 @@ body{@apply bg-[#EAEBEB] dark:text-white dark:bg-dark}
 h1, h2, h3, h4{@apply text-primary dark:text-white}
 input, textarea{@apply dark:bg-[#292A33]}
 .dark .toggle-inner {@apply ml-[20px]}
+.btn{@apply capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-lg m-2}

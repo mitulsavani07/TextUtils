@@ -51,17 +51,17 @@ const TextUtils = (props) => {
   return (
     <>
       <div className='container mx-auto px-4'>
-        <h1 className='text-center text-4xl font-bold my-5'>{props.heading}</h1>
-        <textarea className='w-full border-2 p-5 rounded-3xl dark:text-white dark:drop-shadow-none dark:border-none drop-shadow-[-3px_26px_49px_#b6bacb59]' value={text} name="" id="myBox" cols="30" rows="10" onChange={textChange} placeholder='Enter Yout Utils text'></textarea>
-        <div className='flex space-x-4 flex-wrap mt-5'>
-          <button onClick={clickUppercase} className='capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-2xl'>uppercase</button>
-          <button onClick={clickLowercase} className='capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-2xl'>lowercase</button>
-          <button onClick={clickCamelcase} className='capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-2xl'>camelcase</button>
-          <button onClick={clickSplit} className='capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-2xl'>Split Text</button>
-          <button onClick={clickLine} className='capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-2xl'>Split Line</button>
-          <button onClick={clickSplitExtraspace} className='capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-2xl'>Split Extra space</button>
-          <button onClick={clickcopyText} className='capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-2xl'>Copy Text</button>
-          <button onClick={clickclearText} className='capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-2xl'>Clear Text</button>
+        <h1 className='text-center text-5xl font-bold my-5'>{props.heading}</h1>
+        <textarea className='w-full border-2 p-5 rounded-lg dark:text-white dark:drop-shadow-none dark:border-none drop-shadow-[-3px_26px_49px_#b6bacb59]' value={text} name="" id="myBox" cols="30" rows="10" onChange={textChange} placeholder='Enter Yout Utils text'></textarea>
+        <div className='flex flex-wrap mt-5 -mx-2'>
+          <button onClick={clickUppercase} className='btn'>uppercase</button>
+          <button onClick={clickLowercase} className='btn'>lowercase</button>
+          <button onClick={clickCamelcase} className='btn'>camelcase</button>
+          <button onClick={clickSplit} className='btn'>Split Text</button>
+          <button onClick={clickLine} className='btn'>Split Line</button>
+          <button onClick={clickSplitExtraspace} className='btn'>Split Extra space</button>
+          <button onClick={clickcopyText} className='btn'>Copy Text</button>
+          <button onClick={clickclearText} className='btn'>Clear Text</button>
         </div>
         <p className='my-10'>Word: {text.split(" ").length-1} | Character: {text.length} | Read Minutes: {0.008 * text.split(" ").length}</p>
       </div>
