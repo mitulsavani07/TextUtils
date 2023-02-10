@@ -4,6 +4,6 @@
 
 
 body{@apply bg-[#EAEBEB] dark:text-white dark:bg-dark}
-h1, h2, h3, h4{@apply text-primary}
+h1, h2, h3, h4{@apply text-primary dark:text-white}
 input, textarea{@apply dark:bg-[#292A33]}
 .dark .toggle-inner {@apply ml-[20px]}

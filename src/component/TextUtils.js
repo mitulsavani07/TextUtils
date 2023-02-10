@@ -63,9 +63,7 @@ const TextUtils = (props) => {
           <button onClick={clickcopyText} className='capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-2xl'>Copy Text</button>
           <button onClick={clickclearText} className='capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-2xl'>Clear Text</button>
         </div>
-        <p className='my-10'>Word: {text.split(" ").length-1}</p>
-        <p className='my-10'>Character: {text.length} </p>
-        <p className='my-10'>Read Minutes: {0.008 * text.split(" ").length} </p>
+        <p className='my-10'>Word: {text.split(" ").length-1} | Character: {text.length} | Read Minutes: {0.008 * text.split(" ").length}</p>
       </div>
     </>
   )
