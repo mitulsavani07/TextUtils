@@ -3,8 +3,21 @@
 @tailwind utilities;
 
 
-body{@apply bg-[#EAEBEB] dark:text-white dark:bg-dark}
+body{@apply font-primary font-normal bg-light dark:text-white dark:bg-dark text-[15px]}
 h1, h2, h3, h4{@apply text-primary dark:text-white}
 input, textarea{@apply dark:bg-[#292A33]}
 .dark .toggle-inner {@apply ml-[20px]}
 .btn{@apply capitalize text-sm bg-primary border-2 border-primary hover:bg-transparent hover:text-primary font-semibold duration-300 px-8 py-3 text-white rounded-lg m-2}
+
+.navbarLink a{@apply text-primary dark:text-white p-2 font-medium}
+.navbarLink a.active{@apply bg-white dark:bg-darksecondary rounded-2xl drop-shadow-primary dark:drop-shadow-none}
+
+/* navbar */
+nav.active{@apply left-0 md:w-36 md:px-5 md:min-w-[64px]}
+nav.active .logo{@apply md:hidden}
+nav.active .showA{@apply md:hidden}
+nav.active .navactive{@apply md:block}
+nav.active .navbarLink{@apply md:space-y-0}
+nav.active .navbarLink a.active{@apply md:bg-transparent}
+nav.active .navbarLink a.active .nav-icon{@apply md:bg-primary md:text-white}
+#main.active{@apply md:pl-36}

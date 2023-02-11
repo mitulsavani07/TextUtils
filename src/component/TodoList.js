@@ -52,7 +52,7 @@ const TodoList = () => {
 
   return (
     <>
-      <div className='max-w-3xl w-full mx-auto px-4'>
+      <div className='max-w-3xl w-full mx-auto px-4 my-5'>
         <form onSubmit={handleSubmit} className="mb-5 flex">
           <input
             className="border-gray-400 px-4 py-2 w-full rounded-lg mr-4 drop-shadow-primary dark:drop-shadow-none"

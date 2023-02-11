@@ -1,124 +1,62 @@
-import React, { memo, useState } from 'react'
+import React, { memo } from 'react'
+import { NavLink } from "react-router-dom";
+
 
 const Navbar = memo(() => {
-  const [isOpen, setOpen] = useState(false);
-  const [isOpenmenu, setOpenmenu] = useState(false);
-
-  let clickedClass = "clicked"
-  const body = document.querySelector('html')
-  const lightTheme = "light"
-  const darkTheme = "dark"
-  let theme
-
-  if (localStorage) {
-    theme = localStorage.getItem("theme")
-  }
-
-  if (theme === lightTheme || theme === darkTheme) {
-    body.classList.add(theme)
-  } else {
-    body.classList.add(lightTheme)
-  }
-
-  const switchTheme = e => {
-    if (theme === darkTheme) {
-      body.classList.replace(darkTheme, lightTheme)
-      e.target.classList.remove(clickedClass)
-      localStorage.setItem("theme", "light")
-      theme = lightTheme
-    } else {
-      body.classList.replace(lightTheme, darkTheme)
-      e.target.classList.add(clickedClass)
-      localStorage.setItem("theme", "dark")
-      theme = darkTheme
-    }
-  }
-
-
+  // const [isActive, setIsActive] = useState(false);
+  const handleClick = () => {
+    let main = document.querySelector('#main');
+    let nav = document.querySelector('#nav');
+    main.classList.toggle('active');
+    nav.classList.toggle('active');
+  };
+  // const [isOpenmenu, setOpenmenu] = useState(false);
   return (
     <>
-    <nav className="dark:bg-dark">
-      <div className="mx-auto container px-4">
-        <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* Mobile menu button */}
-            <button onClick={() => setOpenmenu(!isOpenmenu)} type="button" className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-              <span className="sr-only">Open main menu</span>
-              <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-              <svg className="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
-              <img className="h-8 w-auto dark:hidden" src="images/light-logo.svg" alt="Your Company" />
-              <img className="hidden h-8 w-auto dark:block" src="images/dark-logo.svg" alt="Your Company" />
-            </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                <a href="/" className="bg-primary text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
-                <a href="/todolist" className="text-primary hover:bg-primary hover:text-white px-3 py-2 rounded-md text-sm font-medium">Todolist</a>
-              </div>
-            </div>
-          </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            {/* darkmode button */}
-            <div id="darkMode" onClick={e => switchTheme(e)} className="relative w-[50px] flex p-[5px] dark:bg-white bg-[#1a202c] rounded-full cursor-pointer shadow-[0px_5px_20px_-10px_#000000] duration-300 ease-in transition-colors">
-              <div className="z-20 toggle-inner w-[20px] h-[15px] dark:bg-dark bg-white rounded-full transition-[margin-left_0.2s_ease-in,_background-color_0.2s_ease-in]"></div>
-              <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 absolute top-1/2 right-1 z-10 -translate-y-1/2"><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" className="stroke-slate-400 dark:stroke-slate-500"></path><path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" className="stroke-slate-400 dark:stroke-slate-500"></path></svg>
-              <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 mr-2 absolute left-1 top-1/2 z-10 -translate-y-1/2"><path fillRule="evenodd" clipRule="evenodd" d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z" className="fill-transparent"></path><path d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z" className="fill-slate-400 dark:fill-slate-500"></path><path fillRule="evenodd" clipRule="evenodd" d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z" className="fill-slate-400 dark:fill-slate-500"></path></svg>
-            </div>
-              {/* <label className="switch cursor-pointer relative" htmlFor="customSwitch1"><input type="checkbox" className="hidden overflow-visible" id="customSwitch1" />
-                <span className="w-14 txt block relative rounded-3xl overflow-hidden h-6 after:rounded-[20px] after:duration-500 before:duration-500 before:rounded-[20px] after:py-[10px] before:py-[12px] after:bg-white before:bg-[#E9E9EB] after:w-[20px] before:w-[45px] after:block before:block after:z-20 after:absolute before:absolute after:left-[2px] before:left-0 after:top-1/2 before:top-1/2 after:mt-[-10px] before:mt-[-12px] after:shadow-lg"></span>
-              </label> */}
-
-
-
-            {/* <button type="button" className="rounded-full bg-primary p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-              <span className="sr-only">View notifications</span>
-              <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-              </svg>
-            </button> */}
-            <div className="relative ml-3">
-              <div>
-                <button type="button" onClick={() => setOpen(!isOpen)} className="flex rounded-full bg-primary text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                  <span className="sr-only">Open user menu</span>
-                  <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                </button>
-              </div>
-              {isOpen &&
-                <div id="user-content" className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabIndex="-1">
-                  {/* <!-- Active: "bg-gray-100", Not Active: "" --> */}
-                  <a href="/" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1" id="user-menu-item-0">Your Profile</a>
-                  <a href="/" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1" id="user-menu-item-1">Settings</a>
-                  <a href="/" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1" id="user-menu-item-2">Sign out</a>
-                </div>
-              }
-            </div>
-          </div>
+      <nav id="nav" className={`h-screen w-full z-10 bg-light -left-full md:left-0 md:w-60 lg:w-80 fixed py-10 px-7 my-element duration-500 border-r-2 border-highlight`}>
+        <div className="flex flex-shrink-0 items-center justify-between">
+          <NavLink to="/">
+            <img className="h-8 w-auto dark:hidden logo" src="images/light-logo.svg" alt="Your Company" />
+            <img className="hidden h-8 w-auto dark:block logo" src="images/dark-logo.svg" alt="Your Company" />
+            <img className='hidden h-8 navactive w-14' src="images/navactive.svg" alt="Your Company" />
+          </NavLink>
+            <svg onClick={handleClick} className='w-5 h-4 cursor-pointer' width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M15 1.63021C15 1.16997 14.6269 0.796875 14.1667 0.796875H0.833332C0.373095 0.796875 0 1.16997 0 1.63021C0 2.09045 0.373095 2.46354 0.833332 2.46354H14.1667C14.6269 2.46354 15 2.09045 15 1.63021ZM14.1667 9.13021C14.6269 9.13021 15 9.5033 15 9.96354C15 10.4238 14.6269 10.7969 14.1667 10.7969H10.8333C10.3731 10.7969 10 10.4238 10 9.96354C10 9.5033 10.3731 9.13021 10.8333 9.13021H14.1667Z" fill="#808191" />
+              <path d="M15 5.79622C15 5.33599 14.6269 4.96289 14.1667 4.96289H5.83333C5.3731 4.96289 5 5.33599 5 5.79622C5 6.25646 5.3731 6.62956 5.83333 6.62956H14.1667C14.6269 6.62956 15 6.25646 15 5.79622Z" fill="#CECECE" />
+            </svg>
         </div>
-      </div>
-
-      {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-      {isOpenmenu &&
-        <div className="sm:hidden" id="mobile-menu">
-          <div className="space-y-1 px-2 pt-2 pb-3">
-            {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-            <a href="/" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
-
-            <a href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-
-            <a href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-
-            <a href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-          </div>
+        <div className="pt-10">
+          <ul className="space-y-4 navbarLink">
+            {/* <li className="bg-white drop-shadow-primary dark:drop-shadow-none dark:bg-darksecondary text-primary dark:text-white p-2 rounded-2xl font-medium"><Link to="/" className='flex items-center relative'><span className='inline-block p-4 mr-2'><svg className='w-4 h-4' viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.99156 11.8947L5.17079 11.7406L5.17079 11.7406L5.99156 11.8947ZM6.00529 11.8215L6.82606 11.9756L6.82606 11.9756L6.00529 11.8215ZM9.21694 11.8215L8.39617 11.9756L8.39617 11.9756L9.21694 11.8215ZM9.23067 11.8947L10.0514 11.7406L10.0514 11.7406L9.23067 11.8947ZM9.02496 13.4787L9.77903 13.8376L9.77903 13.8376L9.02496 13.4787ZM8.18799 13.2941C7.9898 13.7105 8.16675 14.2088 8.58321 14.407C8.99967 14.6052 9.49794 14.4282 9.69614 14.0118L8.18799 13.2941ZM6.19728 13.4787L5.4432 13.8376L5.44321 13.8376L6.19728 13.4787ZM5.5261 14.0118C5.72429 14.4282 6.22257 14.6052 6.63903 14.407C7.05549 14.2088 7.23243 13.7105 7.03424 13.2941L5.5261 14.0118ZM7.15757 10.5618L6.93429 9.75707L6.93429 9.75707L7.15757 10.5618ZM8.06466 10.5618L8.28794 9.75707L8.28794 9.75707L8.06466 10.5618ZM6.81233 12.0487L6.82606 11.9756L5.18452 11.6675L5.17079 11.7406L6.81233 12.0487ZM8.39617 11.9756L8.4099 12.0487L10.0514 11.7406L10.0377 11.6675L8.39617 11.9756ZM8.27089 13.1199L8.18799 13.2941L9.69614 14.0118L9.77903 13.8376L8.27089 13.1199ZM5.44321 13.8376L5.5261 14.0118L7.03424 13.2941L6.95134 13.1199L5.44321 13.8376ZM8.4099 12.0487C8.47805 12.4118 8.42921 12.7872 8.27089 13.1199L9.77903 13.8376C10.0894 13.1853 10.1847 12.4507 10.0514 11.7406L8.4099 12.0487ZM5.17079 11.7406C5.0375 12.4507 5.1328 13.1853 5.4432 13.8376L6.95135 13.1199C6.79303 12.7872 6.74418 12.4118 6.81234 12.0487L5.17079 11.7406ZM7.38085 11.3665C7.53159 11.3246 7.69064 11.3246 7.84138 11.3665L8.28794 9.75707C7.84501 9.63417 7.37722 9.63417 6.93429 9.75707L7.38085 11.3665ZM10.0377 11.6675C9.86549 10.75 9.18871 10.007 8.28794 9.75707L7.84138 11.3665C8.12325 11.4447 8.34053 11.6792 8.39617 11.9756L10.0377 11.6675ZM6.82606 11.9756C6.8817 11.6792 7.09898 11.4447 7.38085 11.3665L6.93429 9.75707C6.03352 10.007 5.35674 10.75 5.18452 11.6675L6.82606 11.9756Z" fill="currentColor" />
+              <path d="M13.621 5.78896C13.621 5.32775 13.2471 4.95386 12.7859 4.95386C12.3247 4.95386 11.9508 5.32775 11.9508 5.78896H13.621ZM3.27158 5.78896C3.27158 5.32775 2.89769 4.95386 2.43648 4.95386C1.97526 4.95386 1.60137 5.32775 1.60137 5.78896H3.27158ZM9.39521 13.5887L9.20321 12.776L9.39521 13.5887ZM5.82719 13.5887L6.01919 12.776L5.82719 13.5887ZM9.61894 2.44931L9.02634 3.03772L9.61894 2.44931ZM13.4072 7.44971C13.7321 7.77699 14.2609 7.77886 14.5882 7.45389C14.9155 7.12892 14.9173 6.60017 14.5924 6.27288L13.4072 7.44971ZM5.60348 2.44931L6.19608 3.03772L5.60348 2.44931ZM0.630059 6.27288C0.305088 6.60017 0.306962 7.12892 0.634245 7.45389C0.961527 7.77887 1.49028 7.77699 1.81525 7.44971L0.630059 6.27288ZM11.9508 5.78896V9.2802H13.621V5.78896H11.9508ZM3.27158 9.2802V5.78896H1.60137V9.2802H3.27158ZM9.20321 12.776C8.15606 13.0234 7.06634 13.0234 6.01919 12.776L5.63519 14.4015C6.93487 14.7085 8.28753 14.7085 9.58721 14.4015L9.20321 12.776ZM6.01919 12.776C4.41337 12.3966 3.27158 10.9515 3.27158 9.2802H1.60137C1.60137 11.7185 3.26829 13.8423 5.63519 14.4015L6.01919 12.776ZM9.58721 14.4015C11.9541 13.8423 13.621 11.7185 13.621 9.2802H11.9508C11.9508 10.9515 10.809 12.3966 9.20321 12.776L9.58721 14.4015ZM9.02634 3.03772L13.4072 7.44971L14.5924 6.27288L10.2115 1.8609L9.02634 3.03772ZM5.01088 1.8609L0.630059 6.27288L1.81525 7.44971L6.19608 3.03772L5.01088 1.8609ZM10.2115 1.8609C9.75498 1.4011 9.35454 0.995288 8.9895 0.714786C8.60543 0.419667 8.16307 0.184426 7.61121 0.184426V1.85464C7.6474 1.85464 7.73567 1.85769 7.97184 2.03917C8.22704 2.23526 8.53644 2.54434 9.02634 3.03772L10.2115 1.8609ZM6.19608 3.03772C6.68598 2.54434 6.99538 2.23526 7.25057 2.03917C7.48674 1.85769 7.57502 1.85464 7.61121 1.85464V0.184426C7.05935 0.184426 6.61699 0.419667 6.23292 0.714786C5.86787 0.995288 5.46743 1.4011 5.01088 1.8609L6.19608 3.03772Z" fill="currentColor" />
+            </svg></span>
+              <span className='showA'>Home</span>
+              <svg className='absolute right-0 w-4 h-2 showA' width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 0.796875L6 5.79687L11 0.796875" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </Link></li> */}
+            <li className=""><NavLink to="/" activeClassName="active" className='flex items-center relative'><span className='inline-block p-4 mr-2 bg-white drop-shadow-primary dark:drop-shadow-none dark:bg-darksecondary rounded-2xl nav-icon'><svg className='w-4 h-4' viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.99156 11.8947L5.17079 11.7406L5.17079 11.7406L5.99156 11.8947ZM6.00529 11.8215L6.82606 11.9756L6.82606 11.9756L6.00529 11.8215ZM9.21694 11.8215L8.39617 11.9756L8.39617 11.9756L9.21694 11.8215ZM9.23067 11.8947L10.0514 11.7406L10.0514 11.7406L9.23067 11.8947ZM9.02496 13.4787L9.77903 13.8376L9.77903 13.8376L9.02496 13.4787ZM8.18799 13.2941C7.9898 13.7105 8.16675 14.2088 8.58321 14.407C8.99967 14.6052 9.49794 14.4282 9.69614 14.0118L8.18799 13.2941ZM6.19728 13.4787L5.4432 13.8376L5.44321 13.8376L6.19728 13.4787ZM5.5261 14.0118C5.72429 14.4282 6.22257 14.6052 6.63903 14.407C7.05549 14.2088 7.23243 13.7105 7.03424 13.2941L5.5261 14.0118ZM7.15757 10.5618L6.93429 9.75707L6.93429 9.75707L7.15757 10.5618ZM8.06466 10.5618L8.28794 9.75707L8.28794 9.75707L8.06466 10.5618ZM6.81233 12.0487L6.82606 11.9756L5.18452 11.6675L5.17079 11.7406L6.81233 12.0487ZM8.39617 11.9756L8.4099 12.0487L10.0514 11.7406L10.0377 11.6675L8.39617 11.9756ZM8.27089 13.1199L8.18799 13.2941L9.69614 14.0118L9.77903 13.8376L8.27089 13.1199ZM5.44321 13.8376L5.5261 14.0118L7.03424 13.2941L6.95134 13.1199L5.44321 13.8376ZM8.4099 12.0487C8.47805 12.4118 8.42921 12.7872 8.27089 13.1199L9.77903 13.8376C10.0894 13.1853 10.1847 12.4507 10.0514 11.7406L8.4099 12.0487ZM5.17079 11.7406C5.0375 12.4507 5.1328 13.1853 5.4432 13.8376L6.95135 13.1199C6.79303 12.7872 6.74418 12.4118 6.81234 12.0487L5.17079 11.7406ZM7.38085 11.3665C7.53159 11.3246 7.69064 11.3246 7.84138 11.3665L8.28794 9.75707C7.84501 9.63417 7.37722 9.63417 6.93429 9.75707L7.38085 11.3665ZM10.0377 11.6675C9.86549 10.75 9.18871 10.007 8.28794 9.75707L7.84138 11.3665C8.12325 11.4447 8.34053 11.6792 8.39617 11.9756L10.0377 11.6675ZM6.82606 11.9756C6.8817 11.6792 7.09898 11.4447 7.38085 11.3665L6.93429 9.75707C6.03352 10.007 5.35674 10.75 5.18452 11.6675L6.82606 11.9756Z" fill="currentColor" />
+              <path d="M13.621 5.78896C13.621 5.32775 13.2471 4.95386 12.7859 4.95386C12.3247 4.95386 11.9508 5.32775 11.9508 5.78896H13.621ZM3.27158 5.78896C3.27158 5.32775 2.89769 4.95386 2.43648 4.95386C1.97526 4.95386 1.60137 5.32775 1.60137 5.78896H3.27158ZM9.39521 13.5887L9.20321 12.776L9.39521 13.5887ZM5.82719 13.5887L6.01919 12.776L5.82719 13.5887ZM9.61894 2.44931L9.02634 3.03772L9.61894 2.44931ZM13.4072 7.44971C13.7321 7.77699 14.2609 7.77886 14.5882 7.45389C14.9155 7.12892 14.9173 6.60017 14.5924 6.27288L13.4072 7.44971ZM5.60348 2.44931L6.19608 3.03772L5.60348 2.44931ZM0.630059 6.27288C0.305088 6.60017 0.306962 7.12892 0.634245 7.45389C0.961527 7.77887 1.49028 7.77699 1.81525 7.44971L0.630059 6.27288ZM11.9508 5.78896V9.2802H13.621V5.78896H11.9508ZM3.27158 9.2802V5.78896H1.60137V9.2802H3.27158ZM9.20321 12.776C8.15606 13.0234 7.06634 13.0234 6.01919 12.776L5.63519 14.4015C6.93487 14.7085 8.28753 14.7085 9.58721 14.4015L9.20321 12.776ZM6.01919 12.776C4.41337 12.3966 3.27158 10.9515 3.27158 9.2802H1.60137C1.60137 11.7185 3.26829 13.8423 5.63519 14.4015L6.01919 12.776ZM9.58721 14.4015C11.9541 13.8423 13.621 11.7185 13.621 9.2802H11.9508C11.9508 10.9515 10.809 12.3966 9.20321 12.776L9.58721 14.4015ZM9.02634 3.03772L13.4072 7.44971L14.5924 6.27288L10.2115 1.8609L9.02634 3.03772ZM5.01088 1.8609L0.630059 6.27288L1.81525 7.44971L6.19608 3.03772L5.01088 1.8609ZM10.2115 1.8609C9.75498 1.4011 9.35454 0.995288 8.9895 0.714786C8.60543 0.419667 8.16307 0.184426 7.61121 0.184426V1.85464C7.6474 1.85464 7.73567 1.85769 7.97184 2.03917C8.22704 2.23526 8.53644 2.54434 9.02634 3.03772L10.2115 1.8609ZM6.19608 3.03772C6.68598 2.54434 6.99538 2.23526 7.25057 2.03917C7.48674 1.85769 7.57502 1.85464 7.61121 1.85464V0.184426C7.05935 0.184426 6.61699 0.419667 6.23292 0.714786C5.86787 0.995288 5.46743 1.4011 5.01088 1.8609L6.19608 3.03772Z" fill="currentColor" />
+              </svg></span>
+              <span className='showA'>Page</span>
+              <svg className='absolute right-3 w-4 h-2 showA' width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 0.796875L6 5.79687L11 0.796875" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </NavLink></li>
+            <li className=""><NavLink to="/todolist" activeClassName="active" className='flex items-center relative'><span className='inline-block p-4 mr-2 bg-white drop-shadow-primary dark:drop-shadow-none dark:bg-darksecondary rounded-2xl nav-icon'><svg className='w-4 h-4' viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.99156 11.8947L5.17079 11.7406L5.17079 11.7406L5.99156 11.8947ZM6.00529 11.8215L6.82606 11.9756L6.82606 11.9756L6.00529 11.8215ZM9.21694 11.8215L8.39617 11.9756L8.39617 11.9756L9.21694 11.8215ZM9.23067 11.8947L10.0514 11.7406L10.0514 11.7406L9.23067 11.8947ZM9.02496 13.4787L9.77903 13.8376L9.77903 13.8376L9.02496 13.4787ZM8.18799 13.2941C7.9898 13.7105 8.16675 14.2088 8.58321 14.407C8.99967 14.6052 9.49794 14.4282 9.69614 14.0118L8.18799 13.2941ZM6.19728 13.4787L5.4432 13.8376L5.44321 13.8376L6.19728 13.4787ZM5.5261 14.0118C5.72429 14.4282 6.22257 14.6052 6.63903 14.407C7.05549 14.2088 7.23243 13.7105 7.03424 13.2941L5.5261 14.0118ZM7.15757 10.5618L6.93429 9.75707L6.93429 9.75707L7.15757 10.5618ZM8.06466 10.5618L8.28794 9.75707L8.28794 9.75707L8.06466 10.5618ZM6.81233 12.0487L6.82606 11.9756L5.18452 11.6675L5.17079 11.7406L6.81233 12.0487ZM8.39617 11.9756L8.4099 12.0487L10.0514 11.7406L10.0377 11.6675L8.39617 11.9756ZM8.27089 13.1199L8.18799 13.2941L9.69614 14.0118L9.77903 13.8376L8.27089 13.1199ZM5.44321 13.8376L5.5261 14.0118L7.03424 13.2941L6.95134 13.1199L5.44321 13.8376ZM8.4099 12.0487C8.47805 12.4118 8.42921 12.7872 8.27089 13.1199L9.77903 13.8376C10.0894 13.1853 10.1847 12.4507 10.0514 11.7406L8.4099 12.0487ZM5.17079 11.7406C5.0375 12.4507 5.1328 13.1853 5.4432 13.8376L6.95135 13.1199C6.79303 12.7872 6.74418 12.4118 6.81234 12.0487L5.17079 11.7406ZM7.38085 11.3665C7.53159 11.3246 7.69064 11.3246 7.84138 11.3665L8.28794 9.75707C7.84501 9.63417 7.37722 9.63417 6.93429 9.75707L7.38085 11.3665ZM10.0377 11.6675C9.86549 10.75 9.18871 10.007 8.28794 9.75707L7.84138 11.3665C8.12325 11.4447 8.34053 11.6792 8.39617 11.9756L10.0377 11.6675ZM6.82606 11.9756C6.8817 11.6792 7.09898 11.4447 7.38085 11.3665L6.93429 9.75707C6.03352 10.007 5.35674 10.75 5.18452 11.6675L6.82606 11.9756Z" fill="currentColor" />
+              <path d="M13.621 5.78896C13.621 5.32775 13.2471 4.95386 12.7859 4.95386C12.3247 4.95386 11.9508 5.32775 11.9508 5.78896H13.621ZM3.27158 5.78896C3.27158 5.32775 2.89769 4.95386 2.43648 4.95386C1.97526 4.95386 1.60137 5.32775 1.60137 5.78896H3.27158ZM9.39521 13.5887L9.20321 12.776L9.39521 13.5887ZM5.82719 13.5887L6.01919 12.776L5.82719 13.5887ZM9.61894 2.44931L9.02634 3.03772L9.61894 2.44931ZM13.4072 7.44971C13.7321 7.77699 14.2609 7.77886 14.5882 7.45389C14.9155 7.12892 14.9173 6.60017 14.5924 6.27288L13.4072 7.44971ZM5.60348 2.44931L6.19608 3.03772L5.60348 2.44931ZM0.630059 6.27288C0.305088 6.60017 0.306962 7.12892 0.634245 7.45389C0.961527 7.77887 1.49028 7.77699 1.81525 7.44971L0.630059 6.27288ZM11.9508 5.78896V9.2802H13.621V5.78896H11.9508ZM3.27158 9.2802V5.78896H1.60137V9.2802H3.27158ZM9.20321 12.776C8.15606 13.0234 7.06634 13.0234 6.01919 12.776L5.63519 14.4015C6.93487 14.7085 8.28753 14.7085 9.58721 14.4015L9.20321 12.776ZM6.01919 12.776C4.41337 12.3966 3.27158 10.9515 3.27158 9.2802H1.60137C1.60137 11.7185 3.26829 13.8423 5.63519 14.4015L6.01919 12.776ZM9.58721 14.4015C11.9541 13.8423 13.621 11.7185 13.621 9.2802H11.9508C11.9508 10.9515 10.809 12.3966 9.20321 12.776L9.58721 14.4015ZM9.02634 3.03772L13.4072 7.44971L14.5924 6.27288L10.2115 1.8609L9.02634 3.03772ZM5.01088 1.8609L0.630059 6.27288L1.81525 7.44971L6.19608 3.03772L5.01088 1.8609ZM10.2115 1.8609C9.75498 1.4011 9.35454 0.995288 8.9895 0.714786C8.60543 0.419667 8.16307 0.184426 7.61121 0.184426V1.85464C7.6474 1.85464 7.73567 1.85769 7.97184 2.03917C8.22704 2.23526 8.53644 2.54434 9.02634 3.03772L10.2115 1.8609ZM6.19608 3.03772C6.68598 2.54434 6.99538 2.23526 7.25057 2.03917C7.48674 1.85769 7.57502 1.85464 7.61121 1.85464V0.184426C7.05935 0.184426 6.61699 0.419667 6.23292 0.714786C5.86787 0.995288 5.46743 1.4011 5.01088 1.8609L6.19608 3.03772Z" fill="currentColor" />
+              </svg></span>
+              <span className='showA'>Todolist</span>
+              <svg className='absolute right-3 w-4 h-2 showA' width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 0.796875L6 5.79687L11 0.796875" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </NavLink></li>
+          </ul>
         </div>
-      }
-    </nav>
+      </nav>
     </>
   )
 })
