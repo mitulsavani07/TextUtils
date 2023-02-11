@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from 'react'
 
+const getLocalItems = () => {
+  let list = localStorage.getItem('todos');
+  if(list){
+    return JSON.parse(localStorage.getItem('todos'));
+  }else{
+    return [];
+  }
+}
+
 const TodoList = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(getLocalItems);
   const [inputValue, setInputValue] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(null);
 
-  useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem("todos") || "[]");
-    setTodos(storedTodos);
-  }, []);
+  // useEffect(() => {
+  //   const storedTodos = JSON.parse(localStorage.getItem("todos") || "[]");
+  //   setTodos(storedTodos);
+  // }, []);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -62,7 +71,7 @@ const TodoList = () => {
           {todos.map((todo, index) => (
             <li
               key={index}
-              className="rounded-lg py-2 px-4 my-2 flex items-center text-base drop-shadow-primary bg-white justify-between"
+              className="rounded-lg py-2 px-4 my-2 flex items-center text-base drop-shadow-primary dark:drop-shadow-none bg-white dark:bg-[#292A33] justify-between"
             >
               <span>{todo}</span>
               <div>
