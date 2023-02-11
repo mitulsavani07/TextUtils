@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div id="main" className='py-10 pr-7 pl-7 md:pl-60 lg:pl-80 md:ml-7 duration-500'>
+      <div id="main" className='py-5 md:py-10 md:pr-7 px-4 md:pl-60 lg:pl-80 md:ml-7 duration-500'>
         <Topbar />
         <Routes>
           <Route exact path="/" element={<TextUtils heading='Text Utils' />}></Route>
