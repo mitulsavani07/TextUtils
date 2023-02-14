@@ -22,3 +22,7 @@ nav.active .navbarLink .navbarLink-a.active{@apply md:bg-transparent}
 nav.active .navbarLink ul{@apply hidden}
 nav.active .navbarLink a.active .nav-icon{@apply md:bg-primary md:text-white}
 #main.active{@apply md:pl-36}
+
+/* navbarLink */
+.navbarLink-content{@apply hidden duration-100}
+.navbarLink-content.active{@apply block}
