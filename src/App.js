@@ -4,6 +4,8 @@ import TextUtils from './component/TextUtils';
 import TodoList from './component/TodoList';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Topbar from './component/Topbar';
+import CaseConverter from './component/CaseConverter';
+import FindAndReplace from './component/FindAndReplace';
 
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
         <Topbar />
         <Routes>
           <Route exact path="/" element={<TextUtils heading='Text Utils' />}></Route>
+          <Route exact path="/case-converter" element={<CaseConverter heading='Case Converter' />}></Route>
+          <Route exact path="/find-and-replace" element={<FindAndReplace heading='Find And Replace' />}></Route>
           <Route exact path="/todolist" element={<TodoList />}></Route>
           <Route exact path="/about" element={<h2>About</h2>}></Route>
         </Routes>

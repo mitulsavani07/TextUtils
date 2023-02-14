@@ -26,3 +26,5 @@ nav.active .navbarLink a.active .nav-icon{@apply md:bg-primary md:text-white}
 /* navbarLink */
 .navbarLink-content{@apply hidden duration-100}
 .navbarLink-content.active{@apply block}
+nav.active .navbarLink ul.navbarLink-content.active{@apply block md:hidden}
+.navbarLink-content a.active{@apply text-primary font-semibold}
