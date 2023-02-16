@@ -70,14 +70,10 @@ const Navbar = memo(() => {
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
                 Find and replace</NavLink></li>
-                <li><Link to="/" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><NavLink activeClassName="active" to="remove-duplicate-keywords" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                Remove Accents</Link></li>
-                <li><Link to="/" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-                Remove Duplicate Keywords</Link></li>
+                Remove Duplicate Keywords</NavLink></li>
                 <li><Link to="/" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
