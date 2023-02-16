@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import $ from 'jquery';
 
 const CaseConverter = (props) => {
   const clickUppercase = () => {
@@ -20,7 +21,13 @@ const CaseConverter = (props) => {
   const clickcopyText = () => {
     let text = document.getElementById("myBox");
     text.select();
-    navigator.clipboard.writeText(text.value);
+    navigator.clipboard.writeText(text.value).then(() => {
+      $('.copied-alert').fadeIn("slow");
+      setTimeout(function () {
+        $('.copied-alert').fadeOut("slow");
+      }, 1000);
+    });
+    text.blur();
   }
   const clickclearText = () => {
     let newText = '';
@@ -34,7 +41,7 @@ const CaseConverter = (props) => {
     <>
       <div className=''>
         <h1 className='text-center text-3xl md:text-5xl font-bold my-10'>{props.heading}</h1>
-        <textarea className='w-full border-2 p-5 rounded-lg dark:text-white dark:drop-shadow-none dark:border-none drop-shadow-primary ' value={text} name="" id="myBox" cols="30" rows="10" onChange={textChange} placeholder='Enter Yout Utils text'></textarea>
+        <textarea className='w-full p-5 rounded-lg dark:text-white dark:drop-shadow-none dark:border-none drop-shadow-primary ' value={text} name="" id="myBox" cols="30" rows="10" onChange={textChange} placeholder='Enter Yout Utils text'></textarea>
         <div className='flex flex-wrap mt-5 -mx-2 justify-between'>
           <div>
             <button onClick={clickUppercase} className='btn'>uppercase</button>

@@ -6,7 +6,13 @@ import $ from 'jquery';
 const Navbar = memo(() => {
   // const [isActive, setIsActive] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
-
+  let activeBar = $('.navbarLink-content li').hasClass('active');
+  setTimeout(() => {
+    if(activeBar){
+      $('.navbarLink-content').addClass('active');
+    }
+  }, 1000)
+  
   const handleClick = () => {
     let main = document.querySelector('#main');
     let nav = document.querySelector('#nav');
@@ -14,7 +20,7 @@ const Navbar = memo(() => {
     nav.classList.toggle('active');
   };
   // const [isOpenmenu, setOpenmenu] = useState(false);
-
+  
   const handleNavClick = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
@@ -62,39 +68,35 @@ const Navbar = memo(() => {
               </svg>
             </Link>
               <ul className={`${activeIndex === 0 ? "active" : ""} p-4 space-y-4 text-gray navbarLink-content`}>
-                <li><NavLink activeClassName="active" to="/case-converter" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><NavLink activeclassname="active" to="/case-converter" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
                   Case Converter</NavLink></li>
-                <li><NavLink activeClassName="active" to="find-and-replace" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><NavLink activeclassname="active" to="find-and-replace" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
                 Find and replace</NavLink></li>
-                <li><NavLink activeClassName="active" to="remove-duplicate-keywords" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><NavLink activeclassname="active" to="remove-duplicate-keywords" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
                 Remove Duplicate Keywords</NavLink></li>
-                <li><Link to="/" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><NavLink activeclassname="active" to="remove-duplicate-lines" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                Remove Duplicate Lines</Link></li>
-                <li><Link to="/" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                Remove Duplicate Lines</NavLink></li>
+                <li><NavLink activeclassname="active" to="remove-empty-lines" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                Remove Empty Lines</Link></li>
-                <li><Link to="/" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                Remove Empty Lines</NavLink></li>
+                <li><NavLink activeclassname="active" to="remove-extra-spaces" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                Remove Extra Spaces</Link></li>
-                <li><Link to="/" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                Remove Extra Spaces</NavLink></li>
+                <li><NavLink activeclassname="active" to="remove-line-breaks" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                Remove Line Breaks</Link></li>
-                <li><Link to="/" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-                Remove Lines Containing</Link></li>
-                <li><Link to="/" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                Remove Line Breaks</NavLink></li>
+                <li><Link activeclassname="active" to="reverse-string" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
                 Reverse a String</Link></li>
