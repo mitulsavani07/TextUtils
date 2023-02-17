@@ -13,11 +13,7 @@ const TodoList = () => {
   const [todos, setTodos] = useState(getLocalItems);
   const [inputValue, setInputValue] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(null);
-
-  // useEffect(() => {
-  //   const storedTodos = JSON.parse(localStorage.getItem("todos") || "[]");
-  //   setTodos(storedTodos);
-  // }, []);
+  const [selectedItems, setSelectedItems] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -42,7 +38,7 @@ const TodoList = () => {
       setSelectedIndex(null);
     }
     setInputValue("");
-  };  
+  };
 
   const handleEdit = (index) => {
     setInputValue(todos[index]);
@@ -51,6 +47,20 @@ const TodoList = () => {
 
   const handleDelete = (index) => {
     setTodos(todos.filter((_, i) => i !== index));
+    setSelectedItems(selectedItems.filter((i) => i !== index));
+  };
+
+  const handleSelectAll = () => {
+    if (selectedItems.length === todos.length) {
+      setSelectedItems([]);
+    } else {
+      setSelectedItems(todos.map((_, index) => index));
+    }
+  };
+
+  const handleDeleteSelected = () => {
+    setTodos(todos.filter((_, index) => !selectedItems.includes(index)));
+    setSelectedItems([]);
   };
 
   return (
@@ -71,7 +81,26 @@ const TodoList = () => {
             {selectedIndex === null ? "Add Todo" : "Update Todo"}
           </button>
         </form>
-        <ul className="list-none">
+        <div className="flex justify-between items-center">
+          <div>
+            <button
+              className="py-2 px-4 bg-primary text-white rounded"
+              onClick={handleSelectAll}
+            >
+              {selectedItems.length === todos.length ? "Deselect All" : "Select All"}
+            </button>
+            {selectedItems.length > 0 && (
+              <button
+                className="ml-2 bg-red-600 text-white px-4 py-2 rounded text-sm"
+                onClick={handleDeleteSelected}
+              >
+                Delete Selected
+              </button>
+            )}
+          </div>
+          <span>{todos.length} items</span>
+        </div>
+        <ul className="list-none mt-5">
           {todos.map((todo, index) => (
             <li
               key={index}
