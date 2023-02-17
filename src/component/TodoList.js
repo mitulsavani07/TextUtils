@@ -25,6 +25,9 @@ const TodoList = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (inputValue.trim() === "") {
+      return;
+    }
     if (selectedIndex === null) {
       setTodos([...todos, inputValue]);
     } else {
@@ -39,7 +42,7 @@ const TodoList = () => {
       setSelectedIndex(null);
     }
     setInputValue("");
-  };
+  };  
 
   const handleEdit = (index) => {
     setInputValue(todos[index]);
@@ -53,7 +56,7 @@ const TodoList = () => {
   return (
     <>
       <div className='max-w-3xl w-full mx-auto my-5'>
-        <h1 className='text-center text-5xl font-bold my-5'>Todo List</h1>
+        <h1 className='text-center text-3xl md:text-5xl font-bold my-10'>Todo List</h1>
         <form onSubmit={handleSubmit} className="mb-5 flex">
           <input
             className="border-gray-400 px-4 py-2 w-full rounded-lg mr-4 drop-shadow-primary dark:drop-shadow-none"

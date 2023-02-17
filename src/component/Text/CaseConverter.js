@@ -53,7 +53,7 @@ const CaseConverter = (props) => {
             <button onClick={clickclearText} className='btn'>Clear Text</button>
           </div>
         </div>
-        <p className='my-10'>Word: {text.split(" ").length - 1} | Character: {text.length} | Read Minutes: {0.008 * text.split(" ").length}</p>
+        {/* <p className='my-10'>Word: {text.split(" ").length - 1} | Character: {text.length} | Read Minutes: {0.008 * text.split(" ").length}</p> */}
       </div>
     </>
   )

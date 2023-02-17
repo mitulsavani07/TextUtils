@@ -12,6 +12,7 @@ import RemoveEmptyLines from './component/Text/RemoveEmptyLines';
 import RemoveExtraSpaces from './component/Text/RemoveExtraSpaces';
 import RemoveLineBreaks from './component/Text/RemoveLineBreaks';
 import ReverseString from './component/Text/ReverseString';
+import TextCounter from './component/Text/TextCounter';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/remove-extra-spaces" element={<RemoveExtraSpaces heading='Remove Extra Spaces' />}></Route>
           <Route exact path="/remove-line-breaks" element={<RemoveLineBreaks heading='Remove Line Breaks' />}></Route>
           <Route exact path="/reverse-string" element={<ReverseString heading='Reverse a String' />}></Route>
+          <Route exact path="/text-counter" element={<TextCounter heading='Text Counter' />}></Route>
           <Route exact path="/todolist" element={<TodoList />}></Route>
           <Route exact path="/about" element={<h2>About</h2>}></Route>
         </Routes>
