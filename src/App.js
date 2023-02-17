@@ -14,13 +14,14 @@ import RemoveExtraSpaces from './component/Text/RemoveExtraSpaces';
 import RemoveLineBreaks from './component/Text/RemoveLineBreaks';
 import ReverseString from './component/Text/ReverseString';
 import TextCounter from './component/Text/TextCounter';
+import CssFormatter from './component/Formatter/CssFormatter';
 
 
 function App() {
   return (
     <Router>
       <Navbar />  
-      <div id="main" className='py-5 md:py-10 md:pr-7 px-4 md:pl-60 lg:pl-80 md:ml-7 duration-500 relative min-h-screen'>
+      <div id="main" className='py-5 md:py-10 md:pr-7 px-4 md:pl-60 lg:pl-80 md:ml-7 duration-500 relative min-h-screen md:pb-28'>
         <Topbar />
         <Routes>
           <Route exact path="/" element={<TextUtils heading='Text Utils' />}></Route>
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/reverse-string" element={<ReverseString heading='Reverse a String' />}></Route>
           <Route exact path="/text-counter" element={<TextCounter heading='Text Counter' />}></Route>
           <Route exact path="/todolist" element={<TodoList />}></Route>
+          <Route exact path="/css-formatter" element={<CssFormatter heading='Css Formatter' />}></Route>
           <Route exact path="/about" element={<h2>About</h2>}></Route>
         </Routes>
         <Footer />

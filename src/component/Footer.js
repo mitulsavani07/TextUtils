@@ -4,11 +4,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className='text-center absolute bottom-5 left-0 right-0'>
-      Copyright © {currentYear} All Rights Reserved by TextEase | Design by{' '}
-      <a href="https://mitulsavani.tech/" target='_blank' rel='noopener noreferrer' className='text-primary font-medium'>
-        Mitul Savani
-      </a>
-    </div>
+    <footer className='text-center pt-5'>
+      <p className='md:absolute bottom-5 lg:left-80 left-0 md:left-60 right-0'>
+        Copyright © {currentYear} All Rights Reserved by TextEase | Design by{' '}
+        <a href="https://mitulsavani.tech/" target='_blank' rel='noopener noreferrer' className='text-primary font-medium'>
+          Mitul Savani
+        </a>
+      </p>
+    </footer>
   );
 }
