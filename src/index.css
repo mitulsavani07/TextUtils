@@ -13,6 +13,20 @@ textarea{@apply h-80 md:h-96 resize-none overflow-auto}
 .navbarLink .navbarLink-a{@apply text-primary dark:text-white p-2 font-medium}
 .navbarLink .navbarLink-a.active{@apply bg-white dark:bg-darksecondary rounded-2xl drop-shadow-primary dark:drop-shadow-none}
 
+/* width */
+#nav::-webkit-scrollbar { @apply w-[3px]}
+  
+  /* Track */
+  #nav::-webkit-scrollbar-track {@apply shadow-[inset_0_0_5px] shadow-gray rounded-[10px]}
+   
+  /* Handle */
+  #nav::-webkit-scrollbar-thumb { @apply bg-primary rounded-[10px]}
+  
+  /* Handle on hover */
+  /* #nav::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  } */
+
 /* navbar */
 nav.active{@apply left-0 md:w-36 md:px-5 md:min-w-[64px]}
 nav.active .logo{@apply md:hidden}

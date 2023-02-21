@@ -15,6 +15,9 @@ import RemoveLineBreaks from './component/Text/RemoveLineBreaks';
 import ReverseString from './component/Text/ReverseString';
 import TextCounter from './component/Text/TextCounter';
 import CssFormatter from './component/Formatter/CssFormatter';
+import HtmlFormatter from './component/Formatter/HtmlFormatter';
+import JavaScriptFormatter from './component/Formatter/JavaScriptFormatter';
+import JsonFormatter from './component/Formatter/JsonFormatter';
 
 
 function App() {
@@ -36,6 +39,9 @@ function App() {
           <Route exact path="/text-counter" element={<TextCounter heading='Text Counter' />}></Route>
           <Route exact path="/todolist" element={<TodoList />}></Route>
           <Route exact path="/css-formatter" element={<CssFormatter heading='Css Formatter' />}></Route>
+          <Route exact path="/html-formatter" element={<HtmlFormatter heading='HTML Formatter' />}></Route>
+          <Route exact path="/javascript-formatter" element={<JavaScriptFormatter heading='JavaScript Formatter' />}></Route>
+          <Route exact path="/json-formatter" element={<JsonFormatter heading='JSON Formatter' />}></Route>
           <Route exact path="/about" element={<h2>About</h2>}></Route>
         </Routes>
         <Footer />

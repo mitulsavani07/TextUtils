@@ -38,6 +38,7 @@ export default function CssFormatter(props) {
         <div className='lg:w-1/2 w-full px-4'>
           <label htmlFor="input" className='font-semibold text-lg md:text-xl inline-block mb-4'>Input:</label>
             <textarea className='w-full p-5 rounded-lg dark:text-white dark:drop-shadow-none dark:border-none drop-shadow-primary' cols="30" rows="10"
+              placeholder={`Enter Your CSS Code`}
               value={css}
               onChange={(event) => setCss(event.target.value)}
             />
