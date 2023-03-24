@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './component/Navbar';
 import Footer from './component/Footer';
-import TextUtils from './component/Text/TextUtils';
+// import TextUtils from './component/Text/TextUtils';
 import TodoList from './component/TodoList';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Topbar from './component/Topbar';
@@ -18,6 +18,7 @@ import CssFormatter from './component/Formatter/CssFormatter';
 import HtmlFormatter from './component/Formatter/HtmlFormatter';
 import JavaScriptFormatter from './component/Formatter/JavaScriptFormatter';
 import JsonFormatter from './component/Formatter/JsonFormatter';
+import Main from './component/main';
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
       <div id="main" className='py-5 md:py-10 md:pr-7 px-4 md:pl-60 lg:pl-80 md:ml-7 duration-500 relative min-h-screen md:pb-28'>
         <Topbar />
         <Routes>
-          <Route exact path="/" element={<TextUtils heading='Text Utils' />}></Route>
+          <Route exact path="/" element={<Main/>}></Route>
           <Route exact path="/case-converter" element={<CaseConverter heading='Case Converter' />}></Route>
           <Route exact path="/find-and-replace" element={<FindAndReplace heading='Find And Replace' />}></Route>
           <Route exact path="/remove-duplicate-keywords" element={<RemoveDuplicateKeywords heading='Remove Duplicate Keywords' />}></Route>
