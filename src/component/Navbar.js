@@ -23,12 +23,12 @@ const Navbar = memo(() => {
     $(".navbarLink-a").click(function (e) {
       $(".navbarLink-a").removeClass("active");
       $(".navbarLink-content").removeClass("active");
-      $(this).next('.navbarLink-content').toggleClass("active");
-      // let activelist = $(this).next('.navbarLink-content').hasClass('active');
-      // if(activelist) {
-      //   $('.navbarLink-a').next('.navbarLink-content').removeClass("active");
-      // }
+      let checklist = $(this).next().hasClass('navbarLink-content');
+      if(checklist){
+        $(this).toggleClass("active");
+        $(this).next('.navbarLink-content').toggleClass("active");
         e.preventDefault();
+      }
     });
 
     const mediaQuery = window.matchMedia('(max-width: 767px)')
