@@ -19,6 +19,7 @@ import HtmlFormatter from './component/Formatter/HtmlFormatter';
 import JavaScriptFormatter from './component/Formatter/JavaScriptFormatter';
 import JsonFormatter from './component/Formatter/JsonFormatter';
 import Main from './component/main';
+import SplitText from './component/Text/SplitText';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           <Route exact path="/remove-line-breaks" element={<RemoveLineBreaks heading='Remove Line Breaks' />}></Route>
           <Route exact path="/reverse-string" element={<ReverseString heading='Reverse a String' />}></Route>
           <Route exact path="/text-counter" element={<TextCounter heading='Text Counter' />}></Route>
+          <Route exact path="/split-text" element={<SplitText heading='Split Text' />}></Route>
           <Route exact path="/todolist" element={<TodoList />}></Route>
           <Route exact path="/css-formatter" element={<CssFormatter heading='Css Formatter' />}></Route>
           <Route exact path="/html-formatter" element={<HtmlFormatter heading='HTML Formatter' />}></Route>
