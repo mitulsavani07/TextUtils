@@ -6,7 +6,7 @@ export default function SplitText(props) {
   const [words, setWords] = useState([]);
 
   const handleSplitText = () => {
-    const splitWords = text.split(" ");
+    const splitWords = text.split("\n");
     setWords(splitWords);
   };
 

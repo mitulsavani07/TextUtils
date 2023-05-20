@@ -50,6 +50,10 @@ export default function main() {
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
                   Text Counter</NavLink></li>
+                <li><NavLink to="/split-text" className="flex items-center hover:text-primary"><svg className='mr-4 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+                Split Text</NavLink></li>
               </ul>
             </div>
           </div>
