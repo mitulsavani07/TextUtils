@@ -20,6 +20,8 @@ import JavaScriptFormatter from './component/Formatter/JavaScriptFormatter';
 import JsonFormatter from './component/Formatter/JsonFormatter';
 import Main from './component/main';
 import SplitText from './component/Text/SplitText';
+import AutoPrefixer from './component/Formatter/AutoPrefixer';
+import AgeCalculator from './component/Text/AgeCalculator';
 
 
 function App() {
@@ -40,11 +42,13 @@ function App() {
           <Route exact path="/reverse-string" element={<ReverseString heading='Reverse a String' />}></Route>
           <Route exact path="/text-counter" element={<TextCounter heading='Text Counter' />}></Route>
           <Route exact path="/split-text" element={<SplitText heading='Split Text' />}></Route>
+          <Route exact path="/age-calculator" element={<AgeCalculator heading="Age Calculator" />}></Route>
           <Route exact path="/todolist" element={<TodoList />}></Route>
           <Route exact path="/css-formatter" element={<CssFormatter heading='Css Formatter' />}></Route>
           <Route exact path="/html-formatter" element={<HtmlFormatter heading='HTML Formatter' />}></Route>
           <Route exact path="/javascript-formatter" element={<JavaScriptFormatter heading='JavaScript Formatter' />}></Route>
           <Route exact path="/json-formatter" element={<JsonFormatter heading='JSON Formatter' />}></Route>
+          <Route exact path="/autoprefixer" element={<AutoPrefixer heading='JSON Formatter' />}></Route>
           <Route exact path="/about" element={<h2>About</h2>}></Route>
         </Routes>
         <Footer />
