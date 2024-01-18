@@ -22,6 +22,7 @@ import Main from './component/main';
 import SplitText from './component/Text/SplitText';
 import AutoPrefixer from './component/Formatter/AutoPrefixer';
 import AgeCalculator from './component/Text/AgeCalculator';
+import LoremIpsumGenerator from './component/Text/LoremIpsumGenerator';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route exact path="/text-counter" element={<TextCounter heading='Text Counter' />}></Route>
           <Route exact path="/split-text" element={<SplitText heading='Split Text' />}></Route>
           <Route exact path="/age-calculator" element={<AgeCalculator heading="Age Calculator" />}></Route>
+          <Route exact path="/lorem-ipsum-generator" element={<LoremIpsumGenerator heading="Lorem Ipsum Generator" />}></Route>
           <Route exact path="/todolist" element={<TodoList />}></Route>
           <Route exact path="/css-formatter" element={<CssFormatter heading='Css Formatter' />}></Route>
           <Route exact path="/html-formatter" element={<HtmlFormatter heading='HTML Formatter' />}></Route>
