@@ -125,6 +125,12 @@ const Navbar = memo(() => {
               <span className='showA'>Todolist</span>
             </NavLink>
             </li>
+            <li className=""><NavLink to="/qr-code" className={`flex items-center relative todo navbarLink-a`}><span className='inline-block p-4 mr-2 bg-white drop-shadow-primary dark:drop-shadow-none dark:bg-darksecondary rounded-2xl nav-icon'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+            </svg></span>
+              <span className='showA'>QR code</span>
+            </NavLink>
+            </li>
             <li className=""><Link to="/" className={`flex items-center relative navbarLink-a `}><span className='inline-block p-4 mr-2 bg-white drop-shadow-primary dark:drop-shadow-none dark:bg-darksecondary rounded-2xl nav-icon'>
               <svg className="w-4 h-4" width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M0 4C0 1.79086 1.79086 0 4 0H12.3431C13.404 0 14.4214 0.421428 15.1716 1.17157L16.8284 2.82843C17.5786 3.57857 18 4.59599 18 5.65685V18C18 20.2091 16.2091 22 14 22H4C1.79086 22 0 20.2091 0 18V4ZM16 7V18C16 19.1046 15.1046 20 14 20H4C2.89543 20 2 19.1046 2 18V4C2 2.89543 2.89543 2 4 2H11V4C11 5.65685 12.3431 7 14 7H16ZM15.8891 5C15.7909 4.7176 15.6296 4.45808 15.4142 4.24264L13.7574 2.58579C13.5419 2.37035 13.2824 2.20914 13 2.11094V4C13 4.55228 13.4477 5 14 5H15.8891Z" className="c2 fill-current"></path>

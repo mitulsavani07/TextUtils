@@ -23,6 +23,7 @@ import SplitText from './component/Text/SplitText';
 import AutoPrefixer from './component/Formatter/AutoPrefixer';
 import AgeCalculator from './component/Text/AgeCalculator';
 import LoremIpsumGenerator from './component/Text/LoremIpsumGenerator';
+import QrCode from './component/QrCode';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route exact path="/age-calculator" element={<AgeCalculator heading="Age Calculator" />}></Route>
           <Route exact path="/lorem-ipsum-generator" element={<LoremIpsumGenerator heading="Lorem Ipsum Generator" />}></Route>
           <Route exact path="/todolist" element={<TodoList />}></Route>
+          <Route exact path="/qr-code" element={<QrCode />}></Route>
           <Route exact path="/css-formatter" element={<CssFormatter heading='Css Formatter' />}></Route>
           <Route exact path="/html-formatter" element={<HtmlFormatter heading='HTML Formatter' />}></Route>
           <Route exact path="/javascript-formatter" element={<JavaScriptFormatter heading='JavaScript Formatter' />}></Route>
