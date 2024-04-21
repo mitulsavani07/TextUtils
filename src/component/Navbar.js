@@ -113,6 +113,10 @@ const Navbar = memo(() => {
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
                 Lorem Ipsum Generator</NavLink></li>
+                <li><NavLink activeclassname="active" to="/text-to-speech" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+                Text to Speech</NavLink></li>
                 <li><NavLink activeclassname="active" to="/split-text" className="flex items-center"><svg className='mr-4 ml-1 w-2 h-2' width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="4" cy="3.79688" r="3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
@@ -125,9 +129,11 @@ const Navbar = memo(() => {
               <span className='showA'>Todolist</span>
             </NavLink>
             </li>
-            <li className=""><NavLink to="/qr-code" className={`flex items-center relative todo navbarLink-a`}><span className='inline-block p-4 mr-2 bg-white drop-shadow-primary dark:drop-shadow-none dark:bg-darksecondary rounded-2xl nav-icon'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-            </svg></span>
+            <li className=""><NavLink to="/qr-code" className={`flex items-center relative todo navbarLink-a`}><span className='inline-block p-4 mr-2 bg-white drop-shadow-primary dark:drop-shadow-none dark:bg-darksecondary rounded-2xl nav-icon'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z" />
+          </svg>
+            </span>
               <span className='showA'>QR code</span>
             </NavLink>
             </li>
