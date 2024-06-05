@@ -26,6 +26,7 @@ import LoremIpsumGenerator from './component/Text/LoremIpsumGenerator';
 import QrCode from './component/QrCode';
 import TextToSpeech from './component/Text/TextToSpeech';
 import PasswordGenerator from './component/Text/PasswordGenerator';
+import AgeCompare from "./component/Text/AgeCompare";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route exact path="/lorem-ipsum-generator" element={<LoremIpsumGenerator heading="Lorem Ipsum Generator" />}></Route>
           <Route exact path="/text-to-speech" element={<TextToSpeech heading="Text To Speech"/>}></Route>
           <Route exact path="/password-generator" element={<PasswordGenerator/>}></Route>
+          <Route exact path="/age-compare" element={<AgeCompare/>}></Route>
           <Route exact path="/todolist" element={<TodoList />}></Route>
           <Route exact path="/qr-code" element={<QrCode />}></Route>
           <Route exact path="/css-formatter" element={<CssFormatter heading='Css Formatter' />}></Route>
